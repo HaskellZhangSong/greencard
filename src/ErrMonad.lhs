@@ -38,7 +38,8 @@ mapErrM f e =
 instance Functor (ErrM a) where
   fmap = mapErrM
 -}
-
+instance Functor (ErrM a)
+instance Applicative (ErrM a)
 instance Monad (ErrM a) where
   (>>=) m f =
     case m of

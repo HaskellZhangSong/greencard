@@ -73,6 +73,8 @@ thenFilM (FilM act) cont =
 returnFilM :: a -> FilM a
 returnFilM v = FilM (\ _ _ _ _ -> return v)
 
+instance Functor FilM
+instance Applicative FilM
 instance Monad FilM where
   (>>=)  = thenFilM
   return = returnFilM

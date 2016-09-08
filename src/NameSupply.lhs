@@ -35,7 +35,8 @@ instance Functor NSM where
   map f (NSM g) = NSM (\ns -> let (a, ns') = g ns 
                               in  (f a, ns'))
 -}
-
+instance Functor NSM
+instance Applicative NSM
 instance Monad NSM where
   (NSM f) >>= g	= 
     NSM (\ns -> let (result1, ns1)	= f ns

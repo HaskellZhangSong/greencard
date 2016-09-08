@@ -72,6 +72,8 @@ instance Functor MarshallM where
    fmap = mapMarshallM
 -}
 
+instance Functor MarshallM
+instance Applicative MarshallM
 instance Monad MarshallM where
   (MarshallM f) >>= g	= 
     MarshallM 

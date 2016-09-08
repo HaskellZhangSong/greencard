@@ -777,6 +777,8 @@ data PM a = PM (PMState -> (PMState, ErrM String a))
 
 type PMState = (String,String) -- current callconv and ext dll. name
 
+instance Functor PM
+instance Applicative PM
 instance Monad PM where
   return v  = PM (\ x -> (x, return v))
   (>>=) (PM m) f =

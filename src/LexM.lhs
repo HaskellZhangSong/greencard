@@ -111,7 +111,8 @@ setLexState :: Int -> LexM ()
 setLexState lState = LexM (\ (LexState l _ str) -> return ((), LexState l lState str))
 
 -----
-
+instance Functor LexM
+instance Applicative LexM
 instance Monad LexM where
   (>>=)  = thenLexM
   return = returnLexM
